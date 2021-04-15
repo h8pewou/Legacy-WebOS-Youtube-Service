@@ -16,7 +16,7 @@ RUN ln -fs /usr/share/zoneinfo/UCT /etc/localtime
 
 # Download codepoet80's wrapper and configure it
 RUN rm -rf /var/www/html/*
-RUN cd /tmp; git pull https://github.com/codepoet80/metube-php-servicewrapper
+RUN cd /tmp; git clone https://github.com/codepoet80/metube-php-servicewrapper
 RUN mv /tmp/metube-php-servicewrapper/* /var/www/html/
 RUN wget https://raw.githubusercontent.com/h8pewou/legacy_webos/main/metube-webos-config.php -O /var/www/html/config.php
 
