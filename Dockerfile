@@ -8,7 +8,8 @@ ENV TZ "UTC"
 RUN echo "UTC" > /etc/timezone
 RUN dpkg-reconfigure --frontend noninteractive tzdata
 RUN apt-get install -y git wget python ffmpeg curl apache2 php libapache2-mod-php php-mysql php-xml php-zip php-gd
-RUN wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/bin/youtube-dl && chmod a+rx /usr/bin/youtube-dl
+RUN wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/bin/youtube-dl
+RUN chmod a+rx /usr/bin/youtube-dl
 RUN rm -f /etc/localtime
 RUN ln -fs /usr/share/zoneinfo/UCT /etc/localtime
 
