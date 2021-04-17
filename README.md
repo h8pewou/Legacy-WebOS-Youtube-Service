@@ -25,7 +25,7 @@ Optionally you can create a persistent storage for your downloads. The easiest w
 mkdir /path/to/downloads
 ```
 
-### Docker run
+### Docker run (x64)
 
 You can simply run the following command to set the service up. Ensure that /path/to is replaced with the actual path.
 
@@ -42,7 +42,9 @@ Optionally add the following argument to specify a persistent /downloads volume:
 -v /path/to/downloads:/downloads
 ```
 
-### Docker-compose
+
+
+### Docker-compose (x64)
 
 Alternatively you can use the following docker-compose.yml:
 
@@ -67,3 +69,7 @@ services:
 ```
 
 Ensure that /path/to is replaced with the actual path. Issue ```docker-compose up``` to start the service.
+
+### Are you on arm64 (e.g., Raspberry Pi)?
+
+Replace ```h8pewou/legacy-webos-youtube-service:latest``` with ```h8pewou/legacy-webos-youtube-service:arm64```.
