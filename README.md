@@ -36,12 +36,12 @@ Note that the secure keys are optional. See the WebOS app settings for more deta
 
 #### Using persistent volumes
 
-You can also use volumes to configure the application. Download a sample config.php from [here](https://raw.githubusercontent.com/h8pewou/legacy_webos/main/metube-webos-config.php) or [here](https://raw.githubusercontent.com/codepoet80/metube-php-servicewrapper/main/config-sample.php). Ensure that the file_dir is set to /downloads/ (as seen in the first option).
+You can also use volumes to configure the application. Download a sample config.php from [here](https://raw.githubusercontent.com/h8pewou/Legacy-WebOS-Youtube-Service/main/docker-youtube-config-sample.php) or [here](https://raw.githubusercontent.com/codepoet80/metube-php-servicewrapper/main/config-sample.php). Ensure that the file_dir is set to /downloads/ (as seen in the first option).
 
 
 Example:
 ```bash
-wget https://raw.githubusercontent.com/h8pewou/legacy_webos/main/metube-webos-config.php
+wget https://raw.githubusercontent.com/h8pewou/Legacy-WebOS-Youtube-Service/main/docker-youtube-config-sample.php
 ```
 
 Ensure that /path/to is replaced with the actual path:
