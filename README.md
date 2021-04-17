@@ -30,10 +30,10 @@ mkdir /path/to/downloads
 You can simply run the following command to set the service up. Ensure that /path/to is replaced with the actual path.
 
 ```bash
-docker run -d --name webos-legacy-youtube\
---restart=unless-stopped\
--p 8083:80\
--v /path/to/config.php:/var/www/html/config.php\
+docker run -d --name webos-legacy-youtube \
+--restart=unless-stopped \
+-p 8083:80 \
+-v /path/to/config.php:/var/www/html/config.php \
 h8pewou/legacy-webos-youtube-service:latest
 ```
 
