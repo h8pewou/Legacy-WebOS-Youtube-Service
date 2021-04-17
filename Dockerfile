@@ -13,8 +13,6 @@ RUN chmod a+rx /usr/bin/youtube-dl
 RUN rm -f /etc/localtime
 RUN ln -fs /usr/share/zoneinfo/UCT /etc/localtime
 
-# Install app
-
 # Download codepoet80's wrapper and configure it
 RUN rm -rf /var/www/html/*
 RUN cd /tmp; git clone https://github.com/codepoet80/metube-php-servicewrapper
@@ -28,7 +26,6 @@ RUN echo "find /downloads/*.mp4 -amin +60 -exec rm -f {} \;" > /etc/cron.hourly/
 RUN chmod a+rx /etc/cron.hourly/youtube-cleanup
 
 # Configure apache
-
 RUN rm -f /etc/apache2/sites-available/000-default.conf
 RUN wget https://raw.githubusercontent.com/h8pewou/legacy_webos/main/000-default.conf -O /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
@@ -41,7 +38,6 @@ ENV APACHE_PID_FILE /var/run/apache2.pid
 
 EXPOSE 80
 
-RUN echo "rm -f /var/run/apache2/apache2.pid" > /run.sh
-RUN echo "apachectl -DFOREGROUND" >> /run.sh
+RUN wget https://raw.githubusercontent.com/h8pewou/Legacy-WebOS-Youtube-Service/main/run.sh -O /run.sh
 RUN chmod a+rx /run.sh
 CMD ["/bin/bash", "/run.sh"]
