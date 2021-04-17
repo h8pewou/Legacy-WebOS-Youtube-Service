@@ -20,7 +20,11 @@ RUN rm -rf /var/www/html/*
 RUN cd /tmp; git clone https://github.com/codepoet80/metube-php-servicewrapper
 RUN mv /tmp/metube-php-servicewrapper/* /var/www/html/
 RUN wget https://raw.githubusercontent.com/h8pewou/legacy_webos/main/metube-webos-config.php -O /var/www/html/config.php
-RUN echo "find /downloads -amin +60 -exec rm -f {} \;" > /etc/cron.hourly/youtube-cleanup
+
+# Downloads clean-up
+RUN mkdir /downloads/
+RUN chown -R www-data:www-data /downloads/
+RUN echo "find /downloads/*.mp4 -amin +60 -exec rm -f {} \;" > /etc/cron.hourly/youtube-cleanup
 RUN chmod a+rx /etc/cron.hourly/youtube-cleanup
 
 # Configure apache
