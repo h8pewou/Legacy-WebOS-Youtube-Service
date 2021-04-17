@@ -7,7 +7,7 @@ RUN apt-get install -y tzdata
 ENV TZ "UTC"
 RUN echo "UTC" > /etc/timezone
 RUN dpkg-reconfigure --frontend noninteractive tzdata
-RUN apt-get install -y git wget python ffmpeg curl apache2 php libapache2-mod-php php-mysql php-xml php-zip php-gd
+RUN apt-get install -y git wget python cron ffmpeg curl apache2 php libapache2-mod-php php-mysql php-xml php-zip php-gd
 RUN wget https://yt-dl.org/downloads/latest/youtube-dl -O /usr/bin/youtube-dl
 RUN chmod a+rx /usr/bin/youtube-dl
 RUN rm -f /etc/localtime
@@ -20,6 +20,8 @@ RUN rm -rf /var/www/html/*
 RUN cd /tmp; git clone https://github.com/codepoet80/metube-php-servicewrapper
 RUN mv /tmp/metube-php-servicewrapper/* /var/www/html/
 RUN wget https://raw.githubusercontent.com/h8pewou/legacy_webos/main/metube-webos-config.php -O /var/www/html/config.php
+RUN echo "find /downloads -amin +60 -exec rm -f {} \;" > /etc/cron.hourly/youtube-cleanup
+RUN chmod a+rx /etc/cron.hourly/youtube-cleanup
 
 # Configure apache
 
