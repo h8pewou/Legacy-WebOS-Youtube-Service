@@ -17,7 +17,7 @@ RUN ln -fs /usr/share/zoneinfo/UCT /etc/localtime
 RUN rm -rf /var/www/html/*
 RUN cd /tmp; git clone https://github.com/codepoet80/metube-php-servicewrapper
 RUN mv /tmp/metube-php-servicewrapper/* /var/www/html/
-RUN wget https://raw.githubusercontent.com/h8pewou/legacy_webos/main/metube-webos-config.php -O /var/www/html/config.php
+RUN wget https://raw.githubusercontent.com/h8pewou/Legacy-WebOS-Youtube-Service/main/docker-youtube-config-sample.php -O /var/www/html/config.php
 
 # Downloads clean-up
 RUN mkdir /downloads/
@@ -27,7 +27,7 @@ RUN chmod a+rx /etc/cron.hourly/youtube-cleanup
 
 # Configure apache
 RUN rm -f /etc/apache2/sites-available/000-default.conf
-RUN wget https://raw.githubusercontent.com/h8pewou/legacy_webos/main/000-default.conf -O /etc/apache2/sites-available/000-default.conf
+RUN wget https://raw.githubusercontent.com/h8pewou/Legacy-WebOS-Youtube-Service/main/000-default.conf -O /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 RUN chown -R www-data:www-data /var/www/html/
 ENV APACHE_RUN_USER www-data
